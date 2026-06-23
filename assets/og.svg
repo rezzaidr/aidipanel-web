@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="'Space Grotesk','Plus Jakarta Sans',system-ui,sans-serif">
+  <defs>
+    <radialGradient id="g1" cx="60%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#5048e5" stop-opacity="0.30"/>
+      <stop offset="70%" stop-color="#5048e5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="40%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.16"/>
+      <stop offset="70%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5048e5"/>
+      <stop offset="100%" stop-color="#322C7A"/>
+    </linearGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.035"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0c12"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="560" y="-160" width="760" height="560" fill="url(#g1)"/>
+  <rect x="-120" y="330" width="640" height="520" fill="url(#g2)"/>
+  <g transform="translate(90,96)">
+    <rect width="62" height="62" rx="16" fill="url(#lg)"/>
+    <path d="M37 16l0 18l16 0l-22 28l0 -18l-16 0l22 -28" transform="translate(0,0)" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" transform-origin="31 31"/>
+    <text x="80" y="42" fill="#e9eaf1" font-size="34" font-weight="700">AidiPanel</text>
+  </g>
+  <text x="90" y="262" fill="#e9eaf1" font-size="74" font-weight="700" letter-spacing="-2">
+    <tspan>Manage <tspan fill="#22d3ee">fast</tspan> LEMP sites</tspan>
+    <tspan x="90" dy="84">without the bloat.</tspan>
+  </text>
+  <text x="92" y="430" fill="#bcc0cd" font-size="24" font-family="'Plus Jakarta Sans',system-ui,sans-serif">A performance-first, open-source control panel for Ubuntu or Debian.</text>
+  <g transform="translate(90,470)">
+    <rect width="600" height="60" rx="14" fill="#12141d" stroke="#ffffff" stroke-opacity="0.1"/>
+    <text x="22" y="39" font-family="'JetBrains Mono',ui-monospace,monospace" font-size="22"><tspan fill="#22d3ee" font-weight="600">$ </tspan><tspan fill="#e9eaf1">bash &lt;(curl -fsSL https://get.aidipanel.com)</tspan></text>
+  </g>
+  <g transform="translate(90,556)" font-family="'JetBrains Mono',ui-monospace,monospace" font-size="18" font-weight="600" fill="#9398a8">
+    <g><rect width="92" height="44" rx="10" fill="#12141d" stroke="#ffffff" stroke-opacity="0.09"/><text x="46" y="29" text-anchor="middle">nginx</text></g>
+    <g transform="translate(104,0)"><rect width="74" height="44" rx="10" fill="#12141d" stroke="#ffffff" stroke-opacity="0.09"/><text x="37" y="29" text-anchor="middle">PHP</text></g>
+    <g transform="translate(190,0)"><rect width="124" height="44" rx="10" fill="#12141d" stroke="#ffffff" stroke-opacity="0.09"/><text x="62" y="29" text-anchor="middle">MariaDB</text></g>
+    <g transform="translate(326,0)"><rect width="92" height="44" rx="10" fill="#12141d" stroke="#ffffff" stroke-opacity="0.09"/><text x="46" y="29" text-anchor="middle">Redis</text></g>
+  </g>
+</svg>
