@@ -583,14 +583,54 @@
       }
       .wdots {
         display: flex;
-        gap: 6px;
+        gap: 7px;
       }
-      .wdots i {
-        width: 10px;
-        height: 10px;
+      .wdots i,
+      .tbar .d {
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
-        background: var(--surface-3);
-        border: 1px solid var(--border);
+        border: 1px solid rgba(0, 0, 0, 0.16);
+        display: grid;
+        place-items: center;
+        font-style: normal;
+        box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.18);
+      }
+      .wdots i::after {
+        content: attr(data-symbol);
+        color: rgba(45, 31, 24, 0.72);
+        font: 700 8px/1 Arial, sans-serif;
+        transform: translateY(-0.25px);
+      }
+      .wdots i:nth-child(1) {
+        background: #ff5f57;
+      }
+      .wdots i:nth-child(2) {
+        background: #febc2e;
+      }
+      .wdots i:nth-child(3) {
+        background: #28c840;
+      }
+      .wdots i:nth-child(3)::after {
+        font-size: 7px;
+      }
+      .tbar .d::after {
+        content: attr(data-symbol);
+        color: rgba(45, 31, 24, 0.72);
+        font: 700 8px/1 Arial, sans-serif;
+        transform: translateY(-0.25px);
+      }
+      .tbar .d:nth-child(1) {
+        background: #ff5f57;
+      }
+      .tbar .d:nth-child(2) {
+        background: #febc2e;
+      }
+      .tbar .d:nth-child(3) {
+        background: #28c840;
+      }
+      .tbar .d:nth-child(3)::after {
+        font-size: 7px;
       }
       .wurl {
         font: 500 11.5px/1 var(--mono);
@@ -829,12 +869,6 @@
         background: #0d1018;
         border-bottom: 1px solid rgba(255, 255, 255, 0.07);
       }
-      .tbar .d {
-        width: 11px;
-        height: 11px;
-        border-radius: 50%;
-        background: #2a2d39;
-      }
       .tbody {
         padding: 16px 19px;
         font: 500 12.5px/1.7 var(--mono);
@@ -1036,11 +1070,7 @@
         margin-bottom: 13px;
       }
 
-      /* speed band */
-      .band {
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-      }
+      /* speed comparison */
       .paths {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1553,6 +1583,14 @@
         background: var(--speed);
         opacity: 0.9;
       }
+      .cache-pipeline > .pl-trunk:first-of-type .pconn {
+        background: var(--speed);
+        opacity: 0.9;
+      }
+      .branch.hit .pconn {
+        background: var(--speed);
+        opacity: 0.9;
+      }
       .pconn.grow {
         flex: 1 1 auto;
       }
@@ -1567,7 +1605,7 @@
         left: 50%;
         width: 2px;
         height: 15px;
-        background: var(--border);
+        background: var(--speed);
         transform: translateX(-1px);
       }
       .pl-split .rail {
@@ -1576,7 +1614,7 @@
         left: 25%;
         right: 25%;
         height: 2px;
-        background: var(--border);
+        background: linear-gradient(to right, var(--speed) 0 50%, var(--border) 50% 100%);
       }
       .pl-split .drop {
         position: absolute;
@@ -1614,7 +1652,7 @@
         left: 25%;
         right: 25%;
         height: 2px;
-        background: var(--border);
+        background: linear-gradient(to right, var(--speed) 0 50%, var(--border) 50% 100%);
       }
       .pl-merge .stub {
         position: absolute;
@@ -1622,7 +1660,7 @@
         left: 50%;
         width: 2px;
         height: 15px;
-        background: var(--border);
+        background: var(--speed);
         transform: translateX(-1px);
       }
       .pl-branches {
@@ -1719,23 +1757,60 @@
       }
       @media (max-width: 760px) {
         .pl-branches {
-          grid-template-columns: 1fr;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
           gap: 0;
         }
-        .pl-split .rail,
-        .pl-split .drop.r,
-        .pl-merge .rail,
-        .pl-merge .drop.r {
-          display: none;
+        .pl-branches .branch {
+          min-width: 0;
         }
-        .pl-split .drop.l,
-        .pl-merge .drop.l {
-          left: 50%;
-        }
-        .pnode,
-        .pnode.head,
-        .skipnote {
+        .pl-branches .pnode,
+        .pl-branches .pnode.head,
+        .pl-branches .skipnote {
+          width: calc(100% - 6px);
           max-width: none;
+        }
+        .pl-branches .pnode {
+          padding: 10px 9px;
+          gap: 7px;
+          border-radius: 10px;
+        }
+        .pl-branches .pnode.head {
+          padding: 10px;
+          gap: 4px;
+        }
+        .pl-branches .pn-ic {
+          width: 26px;
+          height: 26px;
+          border-radius: 7px;
+          font-size: 14px;
+        }
+        .pl-branches .pn-t {
+          font-size: 11.5px;
+        }
+        .pl-branches .pn-s {
+          font-size: 9.5px;
+        }
+        .pl-branches .btag {
+          padding: 4px 6px;
+          font-size: 8.5px;
+        }
+        .pl-branches .head .time {
+          font-size: 17px;
+        }
+        .pl-branches .head .time small,
+        .pl-branches .head .sub {
+          font-size: 9px;
+        }
+        .pl-branches .skipnote {
+          padding: 9px 8px;
+          gap: 5px;
+        }
+        .pl-branches .skip {
+          gap: 4px;
+          font-size: 9px;
+        }
+        .pl-branches .skip .ic {
+          font-size: 11px;
         }
       }
 
@@ -2849,9 +2924,6 @@
 .trust-tag-muted{color:var(--text-soft);background:var(--surface);border-color:var(--border)}
 #how .stage{margin-top:32px}
 
-/* stronger visual break in the long middle narrative */
-.band-contrast{background:var(--surface-2);background:color-mix(in srgb,var(--surface) 44%,transparent)}
-
 /* alternate connector map used by the compact radial mobile shield */
 .shield-svg-mobile{display:none}
 
@@ -2883,7 +2955,6 @@
   .floaters{display:none}
   .foot .wrap{flex-direction:column;align-items:flex-start}
   .foot-links{gap:12px 18px}
-  .band-contrast{padding-top:64px;padding-bottom:64px}
 }
 </style>
   </head>
@@ -3205,7 +3276,7 @@
       <!-- install terminal as the hero centerpiece (faithful to the real provisioning console, loops) -->
       <div class="wrap">
         <div class="term">
-          <div class="tbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+          <div class="tbar" aria-hidden="true"><span class="d" data-symbol="×"></span><span class="d" data-symbol="−"></span><span class="d" data-symbol="↗"></span></div>
           <div class="tbody" id="termBody">
             <span class="tl motd-line" data-delay="620">Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.8.0-71-generic x86_64)</span>
             <span class="tl motd-line" data-delay="140">&nbsp;</span>
@@ -3415,7 +3486,7 @@
         <div class="stage" id="stage">
           <div class="window">
             <div class="wbar">
-              <span class="wdots"><i></i><i></i><i></i></span>
+              <span class="wdots" aria-hidden="true"><i data-symbol="×"></i><i data-symbol="−"></i><i data-symbol="↗"></i></span>
             </div>
             <div class="wbody">
               <div class="wtop">
@@ -3666,8 +3737,8 @@
       </div>
     </section>
 
-    <!-- SPEED BAND -->
-    <section class="section band band-contrast" id="speed">
+    <!-- SPEED -->
+    <section class="section" id="speed">
       <div class="wrap">
         <div class="shead rv" style="max-width: 660px; margin: 0 auto 46px; text-align: center">
           <h2>Why cached pages feel instant.</h2>
