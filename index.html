@@ -591,16 +591,7 @@
         height: 12px;
         border-radius: 50%;
         border: 1px solid rgba(0, 0, 0, 0.16);
-        display: grid;
-        place-items: center;
-        font-style: normal;
         box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.18);
-      }
-      .wdots i::after {
-        content: attr(data-symbol);
-        color: rgba(45, 31, 24, 0.72);
-        font: 700 8px/1 Arial, sans-serif;
-        transform: translateY(-0.25px);
       }
       .wdots i:nth-child(1) {
         background: #ff5f57;
@@ -611,15 +602,6 @@
       .wdots i:nth-child(3) {
         background: #28c840;
       }
-      .wdots i:nth-child(3)::after {
-        font-size: 7px;
-      }
-      .tbar .d::after {
-        content: attr(data-symbol);
-        color: rgba(45, 31, 24, 0.72);
-        font: 700 8px/1 Arial, sans-serif;
-        transform: translateY(-0.25px);
-      }
       .tbar .d:nth-child(1) {
         background: #ff5f57;
       }
@@ -628,9 +610,6 @@
       }
       .tbar .d:nth-child(3) {
         background: #28c840;
-      }
-      .tbar .d:nth-child(3)::after {
-        font-size: 7px;
       }
       .wurl {
         font: 500 11.5px/1 var(--mono);
@@ -2898,12 +2877,23 @@
   .navham .ic{font-size:21px}
   .nav.menuopen .navham .ham-open{display:none}
   .nav.menuopen .navham .ham-close{display:inline-block}
-  .mobnav{position:absolute;top:calc(100% + 4px);right:0;width:min(280px,calc(100vw - 32px));background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:8px;z-index:60;flex-direction:column;gap:2px}
+  .nav.menuopen::before{content:"";position:fixed;inset:0;z-index:55;background:rgba(6,8,15,.56);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .mobnav{position:fixed;top:50%;left:50%;width:min(360px,calc(100vw - 34px));max-height:calc(100dvh - 48px);overflow:auto;transform:translate(-50%,-48%) scale(.98);opacity:0;background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 96%,var(--ink-pale)),var(--surface));border:1px solid color-mix(in srgb,var(--border) 82%,var(--speed-light));border-radius:14px;box-shadow:0 22px 72px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.08);padding:10px;z-index:60;flex-direction:column;gap:4px;pointer-events:none;transition:opacity .18s ease,transform .18s ease}
   .nav.menuopen .mobnav{display:flex}
+  .nav.menuopen .mobnav{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+  .mobnav-head{display:flex;align-items:center;gap:10px;padding:8px 8px 12px;margin-bottom:4px;border-bottom:1px solid var(--border)}
+  .mobnav-head .logo{width:30px;height:30px;border-radius:9px;font-size:16px}
+  .mobnav-title{display:grid;gap:2px}
+  .mobnav-title b{font:700 15px/1 var(--head);color:var(--text)}
+  .mobnav-title span{font:600 11px/1 var(--body);color:var(--text-muted)}
+  .mobnav-close{margin-left:auto;width:30px;height:30px;border-radius:9px;border:1px solid var(--border);background:color-mix(in srgb,var(--surface-3) 74%,transparent);color:var(--text-muted);display:grid;place-items:center;cursor:pointer}
+  .mobnav-close .ic{font-size:16px}
+  .mobnav-close:hover{color:var(--text);border-color:color-mix(in srgb,var(--border) 70%,var(--speed-light));background:var(--surface-3)}
   .mobnav a,.mobnav .soonlink{display:flex;align-items:center;gap:9px;padding:12px 14px;border-radius:10px;font:600 15px/1 var(--body);color:var(--text-soft)}
   .mobnav a:hover{background:var(--surface-3);color:var(--text)}
-  .mobnav .mobgh{justify-content:center;border:1px solid var(--border);margin-top:6px;color:var(--text)}
+  .mobnav .mobgh{justify-content:center;border:1px solid var(--border);margin-top:8px;color:var(--text);background:color-mix(in srgb,var(--surface-3) 72%,transparent)}
 }
+@media(max-width:920px) and (prefers-reduced-motion:reduce){.mobnav{transition:none}}
 
 /* responsive containment + accessible interaction polish */
 .cmd{max-width:100%;min-width:0}
@@ -2923,6 +2913,51 @@
 .trust-tag-ok{color:var(--ok);background:transparent;background:color-mix(in srgb,var(--ok) 13%,transparent);border-color:color-mix(in srgb,var(--ok) 30%,transparent)}
 .trust-tag-muted{color:var(--text-soft);background:var(--surface);border-color:var(--border)}
 #how .stage{margin-top:32px}
+@media(max-width:1024px){
+  #how .stage{overflow:hidden}
+  #how .window{max-width:100%;transform:none!important}
+  #how .wbar{height:36px;padding:0 12px}
+  #how .wdots i{width:11px;height:11px}
+  #how .wbody{padding:10px}
+  #how .wtop{flex-wrap:nowrap;gap:4px;margin-bottom:10px}
+  #how .wnav{padding:6px 7px;font-size:10px;gap:4px;white-space:nowrap}
+  #how .wnav .ic{font-size:12px}
+  #how .wright{gap:5px}
+  #how .wip{padding:4px 6px;font-size:8.5px;gap:4px}
+  #how .wava{width:20px;height:20px;font-size:9px}
+  #how .dtitle h4{font-size:17px}
+  #how .dtitle p{font-size:10.5px}
+  #how .scard,
+  #how .wcard,
+  #how .ktile{border-radius:9px}
+  #how .sgrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 6px;padding:10px}
+  #how .scell .lab{font-size:7.5px}
+  #how .scell .val{font-size:8.5px;gap:3px;line-height:1.15}
+  #how .scell .val.mono{font-size:8px}
+  #how .scell .val .bi{font-size:10px}
+  #how .kpis{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:8px}
+  #how .ktile{padding:8px 6px}
+  #how .kl{font-size:8px;gap:3px;white-space:nowrap}
+  #how .kl .ic{font-size:10px}
+  #how .kn{font-size:14px;margin-top:6px}
+  #how .kn s{font-size:9px}
+  #how .khint{font-size:8px;margin-top:5px}
+  #how .wcols{grid-template-columns:1.7fr 1fr;gap:8px}
+  #how .wch{padding:8px}
+  #how .wct{font-size:9.5px;gap:4px}
+  #how .wsub{display:none}
+  #how .wleg{gap:6px;font-size:7.5px}
+  #how .chart svg{height:112px}
+  #how .cperf{flex-direction:column;align-items:center;gap:8px;padding:12px 10px}
+  #how .donut,
+  #how .donut svg{width:64px;height:64px}
+  #how .cstats{width:100%;gap:6px;font-size:8.5px}
+  #how .cstats div{gap:5px}
+  #how .cstats div > span{gap:4px}
+  #how .cstats b:not(.v){width:6px;height:6px;border-radius:1.5px}
+  #how .cstats .ic{font-size:9px}
+  #how .cstats .v{font-size:8.5px}
+}
 
 /* alternate connector map used by the compact radial mobile shield */
 .shield-svg-mobile{display:none}
@@ -3206,7 +3241,8 @@
       <a class="gh" href="https://github.com/rezzaidr/AidiPanel"><svg class="ic"><use href="#i-github"/></svg> Star on GitHub</a>
       <button class="navham" id="navham" aria-label="Open menu" aria-expanded="false"><svg class="ic ham-open"><use href="#i-menu"/></svg><svg class="ic ham-close"><use href="#i-x"/></svg></button>
     </div>
-    <div class="mobnav" id="mobnav" aria-hidden="true">
+    <div class="mobnav" id="mobnav" aria-hidden="true" role="dialog" aria-modal="true" aria-label="AidiPanel menu">
+      <div class="mobnav-head"><span class="logo" aria-hidden="true"><svg class="ic"><use href="#i-bolt"/></svg></span><span class="mobnav-title"><b>AidiPanel</b><span>Manage fast LEMP sites without the bloat</span></span><button class="mobnav-close" type="button" aria-label="Close menu"><svg class="ic"><use href="#i-x"/></svg></button></div>
       <a href="#features">Features</a><a href="#apps">Apps</a><a href="#security">Security</a>
       <span class="soonlink">Docs <span class="sb">soon</span></span><span class="soonlink">Blog <span class="sb">soon</span></span>
       <a class="gh mobgh" href="https://github.com/rezzaidr/AidiPanel"><svg class="ic"><use href="#i-github"/></svg> Star on GitHub</a>
@@ -3276,7 +3312,7 @@
       <!-- install terminal as the hero centerpiece (faithful to the real provisioning console, loops) -->
       <div class="wrap">
         <div class="term">
-          <div class="tbar" aria-hidden="true"><span class="d" data-symbol="×"></span><span class="d" data-symbol="−"></span><span class="d" data-symbol="↗"></span></div>
+          <div class="tbar" aria-hidden="true"><span class="d"></span><span class="d"></span><span class="d"></span></div>
           <div class="tbody" id="termBody">
             <span class="tl motd-line" data-delay="620">Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.8.0-71-generic x86_64)</span>
             <span class="tl motd-line" data-delay="140">&nbsp;</span>
@@ -3486,7 +3522,7 @@
         <div class="stage" id="stage">
           <div class="window">
             <div class="wbar">
-              <span class="wdots" aria-hidden="true"><i data-symbol="×"></i><i data-symbol="−"></i><i data-symbol="↗"></i></span>
+              <span class="wdots" aria-hidden="true"><i></i><i></i><i></i></span>
             </div>
             <div class="wbody">
               <div class="wtop">
@@ -4801,12 +4837,15 @@
       })();
     </script>
   <script>
-(function(){var nav=document.getElementById('nav'),ham=document.getElementById('navham'),mob=document.getElementById('mobnav');
+(function(){var nav=document.getElementById('nav'),ham=document.getElementById('navham'),mob=document.getElementById('mobnav'),mobClose=document.querySelector('.mobnav-close');
 if(!nav||!ham)return;
-function closeMenu(){nav.classList.remove('menuopen');ham.setAttribute('aria-expanded','false');if(mob)mob.setAttribute('aria-hidden','true');}
-function openMenu(){nav.classList.add('menuopen');ham.setAttribute('aria-expanded','true');if(mob)mob.setAttribute('aria-hidden','false');}
+function closeMenu(){nav.classList.remove('menuopen');ham.setAttribute('aria-expanded','false');document.body.style.overflow='';if(mob)mob.setAttribute('aria-hidden','true');}
+function openMenu(){nav.classList.add('menuopen');ham.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';if(mob)mob.setAttribute('aria-hidden','false');}
 ham.addEventListener('click',function(){if(nav.classList.contains('menuopen')){closeMenu();}else{openMenu();}});
+if(mobClose)mobClose.addEventListener('click',function(){closeMenu();ham.focus();});
 if(mob)mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){closeMenu();ham.focus();});});
+nav.addEventListener('click',function(e){if(e.target===nav&&nav.classList.contains('menuopen')){closeMenu();ham.focus();}});
+document.addEventListener('click',function(e){if(nav.classList.contains('menuopen')&&!nav.contains(e.target)){closeMenu();ham.focus();}});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('menuopen')){closeMenu();ham.focus();}});
 })();
 </script>
