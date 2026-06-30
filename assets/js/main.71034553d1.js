@@ -261,6 +261,7 @@
             hintTimers.push(setTimeout(clearTabHints, 3600));
           }
           var panelHeightHost = document.querySelector("#how .wbody");
+          var panelFrame = document.querySelector("#how .window");
           var dashboardView = document.querySelector('[data-panel-view="dashboard"]');
           var resizePanelTimer = null;
           function syncPanelPreviewHeight() {
@@ -275,7 +276,13 @@
             dashboardView.style.overflow = "visible";
             dashboardView.style.width = "100%";
             var height = Math.ceil(dashboardView.scrollHeight);
-            if (height > 0) panelHeightHost.style.setProperty("--panel-preview-height", height + "px");
+            if (height > 0) {
+              panelHeightHost.style.setProperty("--panel-preview-height", height + "px");
+              if (panelFrame && document.documentElement) {
+                var frameHeight = Math.ceil(panelFrame.offsetHeight);
+                if (frameHeight > 0) document.documentElement.style.setProperty("--preview-frame-height", frameHeight + "px");
+              }
+            }
             if (previousStyle === null) dashboardView.removeAttribute("style");
             else dashboardView.setAttribute("style", previousStyle);
             if (wasHidden) dashboardView.hidden = true;
