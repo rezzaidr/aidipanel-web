@@ -1,0 +1,81 @@
+# AidiPanel
+
+> AidiPanel is a lightweight, performance-first server control panel for Ubuntu and Debian VPS servers. It provisions and manages a LEMP-style stack with Nginx, PHP-FPM, MariaDB/MySQL, Redis, SSL/TLS, FastCGI Cache, per-site isolation, a web panel, and an SSH CLI.
+
+AidiPanel is designed for developers, WordPress builders, small agencies, VPS users, and self-hosting users who want a clean server panel without heavy background services or unnecessary bloat.
+
+Core positioning:
+- Lightweight server control panel for fast LEMP sites.
+- One-command installer for the full stack and panel.
+- Nginx-first performance with built-in FastCGI Cache.
+- Per-site Linux user isolation and per-site PHP-FPM pools.
+- Web panel plus CLI management from SSH.
+- Self-hosted, no account required, and no phone-home design.
+- Project status: v1 experimental and under active development.
+
+Important implementation notes:
+- The panel UI normally runs on HTTPS port 8443.
+- The CLI binary is installed as `aidipanel`.
+- Site web roots use `/home/<site-user>/htdocs/<domain>`.
+- PHP 8.4 is the default version; PHP 8.2, 8.3, 8.4, and 8.5 are available on demand.
+- MariaDB 10.11 LTS is the default database engine; MariaDB 11.4, MariaDB 11.8, MySQL 8.0, and MySQL 8.4 can be selected at install time.
+- Redis is used for object cache and session storage.
+- SSL certificates for user sites are handled by Let's Encrypt via Certbot with automatic renewal.
+- FastCGI Cache is opt-in per site and can be enabled, disabled, checked, or purged.
+- Site isolation is per-user process/file isolation, not container-level sandboxing.
+- SFTP/SSH login for generated site users is disabled by default.
+- The public landing page is `https://aidipanel.com/`.
+- The public demo is `https://demo.aidipanel.com/`.
+- The source repository is `https://github.com/rezzaidr/AidiPanel`.
+
+## Product pages
+
+- [AidiPanel website](https://aidipanel.com/): Product overview, install command, supported app types, performance positioning, security notes, and panel preview.
+- [AidiPanel live demo](https://demo.aidipanel.com/): Public demo of the AidiPanel web panel.
+- [AidiPanel GitHub repository](https://github.com/rezzaidr/AidiPanel): Source code, installer, documentation, issues, roadmap, and releases.
+
+## Primary documentation
+
+- [README](https://github.com/rezzaidr/AidiPanel/blob/master/README.md): High-level overview, install command, supported stack, site isolation summary, supported OS, CLI examples, and documentation links.
+- [Installation guide](https://github.com/rezzaidr/AidiPanel/blob/master/docs/installation.md): Requirements, one-command install, install options, database engine choices, post-install steps, directories, credentials, supported OS versions, and uninstall notes.
+- [Sites management guide](https://github.com/rezzaidr/AidiPanel/blob/master/docs/sites.md): Adding sites, supported site types, WordPress/Laravel examples, PHP switching, Nginx config editing, vhost structure, guarded deletion, and file permissions.
+- [CLI reference](https://github.com/rezzaidr/AidiPanel/blob/master/docs/cli.md): Commands for site, cache, database, PHP, SSL, service, user, and system management.
+- [Architecture](https://github.com/rezzaidr/AidiPanel/blob/master/docs/architecture.md): Components, request flow, per-site isolation, PHP version policy, privileged operations, panel runtime, and directory map.
+- [Security model](https://github.com/rezzaidr/AidiPanel/blob/master/docs/security.md): Site isolation, privilege boundary, guarded deletion, firewall behavior, TLS defaults, panel hardening, and security reporting.
+- [FastCGI Cache guide](https://github.com/rezzaidr/AidiPanel/blob/master/docs/fastcgi-cache.md): Nginx FastCGI Cache behavior, cache rules, CLI/panel management, WordPress helper plugin notes, and cache TTL adjustments.
+- [SSL / TLS guide](https://github.com/rezzaidr/AidiPanel/blob/master/docs/ssl.md): Let's Encrypt certificate installation, auto-renewal, certificate paths, self-signed panel certificate, redirects, and TLS defaults.
+- [Roadmap](https://github.com/rezzaidr/AidiPanel/blob/master/docs/roadmap.md): Current capabilities, planned features, and items under consideration.
+
+## Main workflows
+
+- [Install AidiPanel](https://github.com/rezzaidr/AidiPanel/blob/master/docs/installation.md#one-command-install): Install the full stack and panel with one command.
+- [Add a site](https://github.com/rezzaidr/AidiPanel/blob/master/docs/sites.md#adding-a-site): Create a site with a dedicated Linux user, web root, PHP-FPM pool, and Nginx vhost.
+- [Install SSL](https://github.com/rezzaidr/AidiPanel/blob/master/docs/ssl.md#installing-a-certificate): Issue and configure Let's Encrypt certificates for a domain.
+- [Manage FastCGI Cache](https://github.com/rezzaidr/AidiPanel/blob/master/docs/fastcgi-cache.md#managing-cache-via-cli): Check, enable, disable, and purge Nginx FastCGI Cache.
+- [Manage PHP versions](https://github.com/rezzaidr/AidiPanel/blob/master/docs/cli.md#php-management): List, install, switch, restart, and inspect PHP-FPM versions.
+- [Manage databases](https://github.com/rezzaidr/AidiPanel/blob/master/docs/cli.md#database-management): Create, delete, list, and back up databases.
+- [Inspect services](https://github.com/rezzaidr/AidiPanel/blob/master/docs/cli.md#service-management): Restart, reload, start, stop, and check services from SSH.
+- [Review security behavior](https://github.com/rezzaidr/AidiPanel/blob/master/docs/security.md): Understand isolation, sudo boundaries, deletion safeguards, firewall, TLS, and login hardening.
+
+## Supported platforms and stack
+
+- [Supported OS and requirements](https://github.com/rezzaidr/AidiPanel/blob/master/docs/installation.md#requirements): Debian 11/12 and Ubuntu 22.04/24.04, with x86_64 and aarch64 architecture support.
+- [Stack overview](https://github.com/rezzaidr/AidiPanel/blob/master/README.md#stack): Nginx mainline, PHP-FPM, MariaDB/MySQL, Redis, Certbot, UFW, and Fail2ban.
+- [PHP version policy](https://github.com/rezzaidr/AidiPanel/blob/master/docs/architecture.md#php-version-policy): Default PHP 8.4 with supported versions installed on demand.
+- [Database engine options](https://github.com/rezzaidr/AidiPanel/blob/master/docs/installation.md#database-engine-options): MariaDB and MySQL install-time choices.
+
+## Security and operations
+
+- [Per-site isolation](https://github.com/rezzaidr/AidiPanel/blob/master/docs/security.md#site-isolation): Dedicated no-login Linux user and dedicated PHP-FPM pool per site.
+- [Privilege boundary](https://github.com/rezzaidr/AidiPanel/blob/master/docs/security.md#privilege-boundary): Web panel uses a narrow root wrapper rather than direct root privileges.
+- [Guarded deletion](https://github.com/rezzaidr/AidiPanel/blob/master/docs/security.md#guarded-deletion): Purge-delete validates the AidiPanel ownership marker before removing users or homes.
+- [Network security](https://github.com/rezzaidr/AidiPanel/blob/master/docs/security.md#network): UFW and Fail2ban defaults.
+- [TLS behavior](https://github.com/rezzaidr/AidiPanel/blob/master/docs/security.md#tls): Let's Encrypt certificates, automatic renewal, TLS 1.2/1.3, HSTS, and OCSP stapling.
+
+## Optional
+
+- [GitHub issues](https://github.com/rezzaidr/AidiPanel/issues): Bug reports, feature requests, and public project discussion.
+- [Repository license](https://github.com/rezzaidr/AidiPanel/blob/master/LICENSE): License information for the source repository.
+- [Raw README](https://raw.githubusercontent.com/rezzaidr/AidiPanel/master/README.md): Plain Markdown version of the README for agents that prefer raw text.
+- [Raw installation guide](https://raw.githubusercontent.com/rezzaidr/AidiPanel/master/docs/installation.md): Plain Markdown installation guide.
+- [Raw CLI reference](https://raw.githubusercontent.com/rezzaidr/AidiPanel/master/docs/cli.md): Plain Markdown CLI command reference.

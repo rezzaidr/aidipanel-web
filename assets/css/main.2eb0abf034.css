@@ -106,7 +106,7 @@
   --text: #e9eaf1;
   --text-soft: #bcc0cd;
   --text-muted: #9398a8;
-  --text-faint: #6b7081;
+  --text-faint: #8a91a3;
   --border: rgba(255, 255, 255, 0.09);
   --line: rgba(255, 255, 255, 0.06);
   --primary: #4f46e5;
@@ -3096,12 +3096,12 @@ a {
   margin-bottom: 12px;
 }
 
-.dtitle h4 {
+.dtitle .panel-title {
   font: 700 15px/1 var(--head);
   color: var(--text);
 }
 
-.dtitle p {
+.dtitle p:not(.panel-title) {
   font: 500 11px/1 var(--body);
   color: var(--text-muted);
   margin-top: 6px;
@@ -3846,10 +3846,10 @@ a {
     height: 20px;
     font-size: 9px;
   }
-  #how .dtitle h4 {
+  #how .dtitle .panel-title {
     font-size: 17px;
   }
-  #how .dtitle p {
+  #how .dtitle p:not(.panel-title) {
     font-size: 10.5px;
   }
   #how .scard,
@@ -4596,7 +4596,7 @@ button.wnav:hover {
 }
 
 @media (max-width: 1024px) {
-  #how .panel-view .dtitle h4,
+  #how .panel-view .dtitle .panel-title,
   #how .mini-page-head h4 {
     font-size: 14px;
   }
