@@ -306,7 +306,7 @@
           AidiPanel</a
         >
         <div class="menu-pill">
-      <nav class="nlinks"><a href="#apps">Apps</a><a href="#features">Features</a><a href="#security">Security</a><span class="soonlink">Docs <span class="sb">soon</span></span><span class="soonlink">Blog <span class="sb">soon</span></span></nav>
+      <nav class="nlinks"><a href="#apps">Apps</a><a href="#features">Features</a><a href="#security">Security</a><a href="/docs/">Docs</a><a href="/blog/">Blog</a></nav>
       <span class="mp-sep"></span>
       <button class="iconbtn" id="theme" aria-label="Toggle theme" title="Toggle theme"><svg class="ic theme-moon"><use href="#i-moon"/></svg><svg class="ic theme-sun"><use href="#i-sun"/></svg></button>
       <a class="gh" href="https://github.com/rezzaidr/AidiPanel"><svg class="ic"><use href="#i-github"/></svg> Star on GitHub</a>
@@ -315,7 +315,7 @@
     <div class="mobnav" id="mobnav" aria-hidden="true" role="dialog" aria-modal="true" aria-label="AidiPanel menu">
       <div class="mobnav-head"><span class="logo" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="logo-mark-triangle" d="M2 19 L12 4 L22 19" /><circle class="logo-mark-dot" cx="12" cy="19" r="2.2" fill="currentColor" stroke="none" /></svg></span><span class="mobnav-title"><b>AidiPanel</b><span>Manage fast LEMP sites without the bloat</span></span><button class="mobnav-close" type="button" aria-label="Close menu"><svg class="ic"><use href="#i-x"/></svg></button></div>
       <a href="#apps">Apps</a><a href="#features">Features</a><a href="#security">Security</a>
-      <span class="soonlink">Docs <span class="sb">soon</span></span><span class="soonlink">Blog <span class="sb">soon</span></span>
+      <a href="/docs/">Docs</a><a href="/blog/">Blog</a>
       <a class="gh mobgh" href="https://github.com/rezzaidr/AidiPanel"><svg class="ic"><use href="#i-github"/></svg> Star on GitHub</a>
     </div>
       </div>
@@ -349,7 +349,7 @@
       </div>
       <div class="wrap">
         <div class="hero-top">
-          <span class="pill rv"><span class="hmark"></span> v1 (experimental) just<b>shipped</b></span>
+          <span class="pill rv"><span class="hmark"></span> Stable v1.2.0 just<b>shipped</b></span>
           <h1 class="rv-lines">
             <span class="ln"
               ><span>Manage <span class="hl">fast</span> LEMP sites</span></span
@@ -360,7 +360,7 @@
           </p>
           <div class="hero-cta rv d3">
             <div class="cmd">
-              <span class="pr">$</span><code id="cmd">bash &lt;(curl -fsSL https://get.aidipanel.com)</code
+              <span class="pr">$</span><code id="cmd">curl -fsSL https://get.aidipanel.com | sudo bash</code
               ><button class="cp" id="copy" aria-label="Copy install command">
                 <svg class="ic"><use href="#i-copy" /></svg>
               </button>
@@ -374,8 +374,8 @@
              <a class="btn btn-primary btn-lg" href="https://demo.aidipanel.com/" target="_blank" rel="noopener noreferrer"
               ><svg class="ic"><use href="#i-play" /></svg> Live demo</a
             >
-            <a class="btn btn-secondary btn-lg" href="#how"
-              ><svg class="ic"><use href="#i-rocket" /></svg> Get started</a
+            <a class="btn btn-secondary btn-lg" href="/docs/guide/quick-start"
+              ><svg class="ic"><use href="#i-rocket" /></svg> Quick start</a
             >
           </div>
         </div>
@@ -410,13 +410,13 @@
             <span class="tl motd-line" data-delay="180">&nbsp;</span>
             <span class="tl motd-line t-warn" data-delay="520">*** System restart required ***</span>
             <span class="tl motd-line" data-delay="520">Last login: Tue Jun 19 11:59:46 2026 from <span class="t-ip">198.51.100.23</span></span>
-            <span class="tl term-command" data-delay="500"><span class="t-prompt">root@aidipanel:~#</span> <span class="t-typed" data-command="bash &lt;(curl -fsSL https://get.aidipanel.com)">bash &lt;(curl -fsSL https://get.aidipanel.com)</span><span class="t-cur"></span></span>
+            <span class="tl term-command" data-delay="500"><span class="t-prompt">root@aidipanel:~#</span> <span class="t-typed" data-command="curl -fsSL https://get.aidipanel.com | sudo bash">curl -fsSL https://get.aidipanel.com | sudo bash</span><span class="t-cur"></span></span>
             <span class="tl">&nbsp;</span>
             <span class="tl"><span class="t-sec">AidiPanel Provisioning Console</span></span>
             <span class="tl"><span class="t-dim">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></span>
             <span class="tl"><span class="t-dim">Fast LEMP Server Management Panel</span></span>
             <span class="tl">&nbsp;</span>
-            <span class="tl"><span class="t-dim" style="display: inline-block; min-width: 96px">Version</span>v1.0.1</span>
+            <span class="tl"><span class="t-dim" style="display: inline-block; min-width: 96px">Version</span>v1.2.0</span>
             <span class="tl"><span class="t-dim" style="display: inline-block; min-width: 96px">Stack</span>Nginx · PHP-FPM · MariaDB · Redis · SSL</span>
             <span class="tl"><span class="t-dim" style="display: inline-block; min-width: 96px">Mode</span>Fresh VPS provisioning</span>
             <span class="tl"><span class="t-dim" style="display: inline-block; min-width: 96px">By</span>rezzaid</span>
@@ -562,7 +562,7 @@
             <span class="tl">&nbsp;</span>
             <span class="tl"><span class="t-sec">Server Passport</span></span>
             <span class="tl"><span class="t-dim">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></span>
-            <span class="tl"><span class="t-dim" style="display: inline-block; min-width: 96px">Panel</span>AidiPanel v1.2.0-rc1</span>
+            <span class="tl"><span class="t-dim" style="display: inline-block; min-width: 96px">Panel</span>AidiPanel v1.2.0</span>
             <span class="tl"><span class="t-dim" style="display: inline-block; min-width: 96px">URL</span><span class="t-url">https://43.156.224.110:8443</span></span>
             <span class="tl"><span class="t-dim" style="display: inline-block; min-width: 96px">Login</span>admin</span>
             <span class="tl"><span class="t-dim" style="display: inline-block; min-width: 96px">Credentials</span>/opt/aidipanel/credentials.conf</span>
@@ -580,7 +580,7 @@
             <span class="tl">5. Point your domain DNS to this server</span>
             <span class="tl">6. Install trusted SSL for the panel</span>
             <span class="tl">&nbsp;</span>
-            <span class="tl"><span class="t-ok">AidiPanel v1.2.0-rc1 installed in 01m 57s</span><span class="t-cur"></span></span>
+            <span class="tl"><span class="t-ok">AidiPanel v1.2.0 installed in 01m 57s</span><span class="t-cur"></span></span>
           </div>
         </div>
       </div>
@@ -1536,14 +1536,14 @@
         <h2 class="rv">Try AidiPanel on<br />a <span style="color: var(--accent)">fresh VPS</span>.</h2>
         <p class="lead rv d1">One command, a few minutes, and a panel that keeps it fast.</p>
         <div class="cmd rv d2">
-          <span class="pr">$</span><code>bash &lt;(curl -fsSL https://get.aidipanel.com)</code
+          <span class="pr">$</span><code>curl -fsSL https://get.aidipanel.com | sudo bash</code
           ><button class="cp" id="copy2" aria-label="Copy install command">
             <svg class="ic"><use href="#i-copy" /></svg>
           </button>
         </div>
         <div class="hero-cta rv d2" style="justify-content: center; margin-top: 18px">
-          <a class="btn btn-primary btn-lg" href="#how"
-            ><svg class="ic"><use href="#i-rocket" /></svg> Get started</a
+          <a class="btn btn-primary btn-lg" href="/docs/guide/quick-start"
+            ><svg class="ic"><use href="#i-rocket" /></svg> Quick start</a
           >
           <a class="btn btn-secondary btn-lg" href="https://github.com/rezzaidr/AidiPanel"
             ><svg class="ic"><use href="#i-github" /></svg> Star on GitHub</a
@@ -1565,7 +1565,7 @@
           </div>
           <span class="foot-bot">© 2026 AidiPanel. Built by rezzaid</span>
         </div>
-        <nav class="foot-links" aria-label="Footer navigation"><a href="#apps">Apps</a><a href="#features">Features</a><a href="#security">Security</a><a href="#faq">FAQ</a><a href="https://github.com/rezzaidr/AidiPanel">GitHub</a><span class="soonlink">Docs <span class="sb">soon</span></span><span class="soonlink">Blog <span class="sb">soon</span></span></nav>
+        <nav class="foot-links" aria-label="Footer navigation"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/license/">License</a><a href="https://github.com/rezzaidr/AidiPanel/issues">Issues</a><a href="/privacy-policy/">Privacy</a><a href="/gdpr/">GDPR</a></nav>
       </div>
     </footer>
 
